@@ -1,0 +1,229 @@
+.usage-section {
+  position: relative;
+  padding: 6rem 0;
+  background-color: var(--bg-color);
+}
+
+.usage-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+/* Dashboard Mockup */
+.dashboard-preview {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-preview:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-header {
+  height: 48px;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 1.5rem;
+}
+
+.dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+}
+
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
+
+.dashboard-body {
+  display: flex;
+  height: 400px;
+}
+
+.sidebar {
+  width: 160px;
+  background: rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--accent-color);
+}
+
+.main-area {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent;
+  overflow: hidden; /* Prevent horizontal scroll */
+}
+
+.stats-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.stat-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0; /* Important for flex child truncation */
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #fff;
+  line-height: 1;
+}
+
+.terminal-logs {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.scrolling-logs {
+  animation: scrollLogs 15s linear infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@keyframes scrollLogs {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.log-line {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+/* CLI Examples */
+.cli-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cli-box {
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.code-block {
+  display: block;
+  background: #000;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #fff;
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-x: auto; /* Allow horizontal scroll for long commands */
+}
+
+/* Syntax Highlighting Fake */
+.code-block .keyword { color: var(--accent-color); }
+.code-block .flag { color: #a78bfa; }
+.code-block .string { color: #fcd34d; }
+.code-block .comment { color: var(--text-muted); }
+
+@media (max-width: 992px) {
+  .usage-content {
+    grid-template-columns: 1fr;
+  }
+  .stats-row {
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex-basis: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 576px) {
+  .sidebar {
+    width: 60px;
+  }
+  .nav-item span {
+    display: none;
+  }
+  .nav-item {
+    padding: 0.75rem;
+    justify-content: center;
+  }
+}

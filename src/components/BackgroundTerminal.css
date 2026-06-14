@@ -1,0 +1,87 @@
+.bg-terminal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2; /* Behind everything */
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Crucial so it doesn't block clicks */
+  overflow: hidden;
+}
+
+.bg-terminal-container {
+  width: 120vw;
+  height: 120vh;
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 30px 100px -20px rgba(16, 185, 129, 0.1);
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.bg-terminal-header {
+  height: 40px;
+  background: rgba(15, 15, 15, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.bg-terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.bg-terminal-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.bg-terminal-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.bg-terminal-body {
+  flex: 1;
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-terminal-scroll {
+  animation: bgTerminalScroll 60s linear infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@keyframes bgTerminalScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.bg-terminal-line {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.bg-terminal-line .timestamp { color: #444; }
+.bg-terminal-line .prefix { color: var(--accent-color); opacity: 0.8; }
+.bg-terminal-line .message { color: #666; }
