@@ -52,7 +52,7 @@ export default function Usage() {
                     <span className="stat-value">3</span>
                   </div>
                 </div>
-                <div className="terminal-logs font-mono text-sm overflow-hidden relative" style={{ height: '150px' }}>
+                <div className="terminal-logs font-mono text-sm overflow-hidden relative">
                   <div className="scrolling-logs">
                     <div className="log-line text-accent">{t.usage.dashboard.log1}</div>
                     <div className="log-line">{t.usage.dashboard.log2}</div>

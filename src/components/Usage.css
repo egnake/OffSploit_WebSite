@@ -58,7 +58,8 @@
 
 .dashboard-body {
   display: flex;
-  height: 400px;
+  min-height: 420px;
+  height: auto;
 }
 
 .sidebar {
